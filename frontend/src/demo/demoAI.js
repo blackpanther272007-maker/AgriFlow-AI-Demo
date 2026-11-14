@@ -204,10 +204,33 @@ export const demoMLPredictor = {
     status: 'ready',
     metadata: {
       version: '1.0.0-demo',
-      models: ['yield_model_v1', 'profit_model_v1', 'anomaly_model_v1', 'expense_nlp_v1'],
+      models: {
+        yield_prediction: {
+          algorithm: 'RandomForestRegressor',
+          features: ['crop_type', 'season', 'area'],
+          r2_score: 0.942,
+          records: 1250,
+        },
+        profit_prediction: {
+          algorithm: 'RandomForestRegressor',
+          features: ['crop_type', 'season', 'area'],
+          r2_score: 0.918,
+          records: 1250,
+        },
+        anomaly_detection: {
+          algorithm: 'IsolationForest',
+          features: ['category', 'farm_area', 'amount'],
+          contamination: 0.05,
+          records: 840,
+        },
+        nlp_categorization: {
+          algorithm: 'TF-IDF + LogisticRegression',
+          accuracy: 0.965,
+        },
+      },
       accuracy: 0.942,
-      last_trained: '2026-09-15'
-    }
+      last_trained: '2026-09-15',
+    },
   }),
 
   predictYield: ({ crop_type, season, area }) => {

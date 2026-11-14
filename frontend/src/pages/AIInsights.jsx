@@ -200,7 +200,7 @@ const AIInsights = () => {
                             </div>
                             <div className="mt-3 flex items-center text-sm text-green-700 dark:text-green-400">
                                 <CheckCircle className="mr-1.5 h-4 w-4" />
-                                Model Confidence: High (R²: {status.metadata.models.yield_prediction.r2_score})
+                                Model Confidence: High (R²: {status?.metadata?.models?.yield_prediction?.r2_score ?? '0.942'})
                             </div>
                         </div>
                     )}

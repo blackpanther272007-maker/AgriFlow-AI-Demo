@@ -51,7 +51,7 @@ This project is optimized to deploy as a **Static Site** on [Render.com](https:/
 
 ### Option A: Manual Setup via Render Dashboard
 1. Go to your **[Render Dashboard](https://dashboard.render.com/)** and click **New +** > **Static Site**.
-2. Connect this repository: `https://github.com/blackpanther272007-maker/AgriFlow-AI.git`.
+2. Connect this repository: `https://github.com/blackpanther272007-maker/AgriFlow-AI-Demo.git`.
 3. Configure the build settings:
    - **Name:** `agriflow-ai`
    - **Branch:** `main`
@@ -67,7 +67,7 @@ This project is optimized to deploy as a **Static Site** on [Render.com](https:/
 
 ### Option B: Blueprint Deployment
 1. In Render Dashboard, click **New +** > **Blueprint**.
-2. Connect `https://github.com/blackpanther272007-maker/AgriFlow-AI.git`.
+2. Connect `https://github.com/blackpanther272007-maker/AgriFlow-AI-Demo.git`.
 3. Render will automatically read [`render.yaml`](./render.yaml) and configure the static site with SPA routing rules.
 4. Click **Apply**.
 

@@ -14,39 +14,42 @@ import LivestockList from './pages/LivestockList';
 import LivestockDetails from './pages/LivestockDetails';
 import AIInsights from './pages/AIInsights';
 import Reports from './pages/Reports';
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
   return (
-    <Routes>
-      {/* Demo Mode: Direct Access - No Login Walls */}
-      <Route path="/login" element={<Navigate to="/dashboard" replace />} />
-      <Route path="/register" element={<Navigate to="/dashboard" replace />} />
+    <ErrorBoundary>
+      <Routes>
+        {/* Demo Mode: Direct Access - No Login Walls */}
+        <Route path="/login" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/register" element={<Navigate to="/dashboard" replace />} />
 
-      {/* Main Application Routes */}
-      <Route element={<ProtectedRoute />}>
-        <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/farms" element={<Farms />} />
-          <Route path="/farms/:id" element={<FarmDetails />} />
-          <Route path="/fields/:id" element={<FieldDetails />} />
-          <Route path="/crops" element={<Crops />} />
-          <Route path="/crops/:id" element={<CropDetails />} />
-          <Route path="/activities" element={<Activities />} />
-          <Route path="/expenses" element={<Expenses />} />
-          <Route path="/income" element={<Income />} />
-          <Route path="/livestock" element={<LivestockList />} />
-          <Route path="/livestock/:id" element={<LivestockDetails />} />
-          <Route path="/ai" element={<AIInsights />} />
-          <Route path="/reports" element={<Reports />} />
+        {/* Main Application Routes */}
+        <Route element={<ProtectedRoute />}>
+          <Route element={<Layout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/farms" element={<Farms />} />
+            <Route path="/farms/:id" element={<FarmDetails />} />
+            <Route path="/fields/:id" element={<FieldDetails />} />
+            <Route path="/crops" element={<Crops />} />
+            <Route path="/crops/:id" element={<CropDetails />} />
+            <Route path="/activities" element={<Activities />} />
+            <Route path="/expenses" element={<Expenses />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/livestock" element={<LivestockList />} />
+            <Route path="/livestock/:id" element={<LivestockDetails />} />
+            <Route path="/ai" element={<AIInsights />} />
+            <Route path="/reports" element={<Reports />} />
 
-          {/* Root redirect to dashboard */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            {/* Root redirect to dashboard */}
+            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          </Route>
         </Route>
-      </Route>
 
-      {/* Catch-all redirect to dashboard */}
-      <Route path="*" element={<Navigate to="/dashboard" replace />} />
-    </Routes>
+        {/* Catch-all redirect to dashboard */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </ErrorBoundary>
   );
 }
 
